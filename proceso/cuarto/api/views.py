@@ -1,5 +1,5 @@
 from rest_framework import generics
-from proceso.cuarto.api.serializer import CuartoSerializer
+from proceso.cuarto.api.serializers import CuartoSerializer
 from proceso.cuarto.models import Cuarto
 
 

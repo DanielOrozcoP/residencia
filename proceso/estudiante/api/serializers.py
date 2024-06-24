@@ -5,33 +5,20 @@ from proceso.estudiante.models import Estudiante
 
 
 class EstudianteSerializers(serializers.ModelSerializer):
-    cuarto = serializers.PrimaryKeyRelatedField(queryset=Cuarto.objects)
+    cuarto = serializers.SlugRelatedField(
+        slug_field='codigo',
+        queryset=Cuarto.objects.all()
+    )
 
     class Meta:
         model = Estudiante
         fields = [
-            'id',
-            'carnet_identidad',
-            'nombre',
-            'apellido',
-            'facultad',
-            'carrera',
-            'ano_academico',
-            'eliminado',
+            'id', 'carnet_identidad',
+            'nombre', 'apellido',
+            'facultad', 'carrera',
+            'ano_academico', 'eliminado',
             'cuarto',
         ]
-
-    def to_representation(self, instance):
-        from proceso.cuarto.api.serializer import CuartoSerializer
-        representacion = super().to_representation(instance)
-        if isinstance(instance, dict):
-            cuarto_instance = instance['cuarto']
-        else:
-            cuarto_instance = instance.cuarto
-        if not isinstance(cuarto_instance, Cuarto):
-            cuarto_instance = Cuarto.objects.get(id=cuarto_instance)
-        representacion['cuarto'] = CuartoSerializer(cuarto_instance).data
-        return representacion
 
     def validate_carnet_identidad(self, value):
         if len(value) != 11:

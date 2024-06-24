@@ -11,7 +11,7 @@ class Estudiante(models.Model):
     carrera = models.CharField(max_length=100, verbose_name='Carrera')
     ano_academico = models.IntegerField(null=True, verbose_name='Año academico')
     eliminado = models.BooleanField(default=False, verbose_name='Eliminado')
-    cuarto = models.ForeignKey(Cuarto, on_delete=models.DO_NOTHING, verbose_name='cuarto')
+    cuarto = models.ForeignKey(Cuarto, on_delete=models.DO_NOTHING, verbose_name='cuarto', related_name='estudiantes')
 
     def __str__(self):
         return self.nombre
