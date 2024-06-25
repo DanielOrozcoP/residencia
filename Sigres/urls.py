@@ -22,7 +22,7 @@ urlpatterns = [
     path('api/estudiante/', include('proceso.estudiante.api.urls')),
     path('api/sede/', include('proceso.sede.api.urls')),
     path('api/cuarto/', include('proceso.cuarto.api.urls')),
-    #path('api/dormitorio/', include('proceso.dormitorio.api.urls')),
+    path('api/dormitorio/', include('proceso.dormitorio.api.urls')),
     path('api/edificio/', include('proceso.edificio.api.urls')),
     #path('api/auth/', include('control_acceso.user_app.api.urls')),
 ]

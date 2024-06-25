@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from proceso.edificio.api.serializer import EdificioSerializer
+from proceso.edificio.api.serializers import EdificioSerializer
 from proceso.sede.models import Sede
 
 
