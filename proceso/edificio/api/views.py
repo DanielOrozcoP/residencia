@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from proceso.edificio.models import Edificio
-from proceso.edificio.api.serializer import EdificioSerializer
+from proceso.edificio.api.serializers import EdificioSerializer
 
 
 # Create your views here.
